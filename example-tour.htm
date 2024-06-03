@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>pannellum embed example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <svg width="600px" height="30%" viewBox="0 150 600 200">
+        <image href="./map/map.jpg" width="500" height="500" />
+        <circle cx="100" cy="300" r="10" fill="red" onclick="changeScene('Lab1')" />
+        <circle cx="200" cy="200" r="10" fill="red" onclick="changeScene('Lab2')" />
+        <circle cx="300" cy="300" r="10" fill="red" onclick="changeScene('Lab3')" />
+    </svg><br>
+ 
+    <iframe width="480" height="390" allowfullscreen style="border-style:none;" src="../src/standalone/pannellum.htm?config=../../examples/example-tour.json"></iframe>
+    <button onclick="changeScene('Lab1')">Scene 1</button>
+    <button onclick="changeScene('Lab2')">Scene 1</button>
+    <button onclick="changeScene('Lab3')">Scene 2</button>
+    <button onclick="zoomIn()">Zoom In</button>
+    <button onclick="zoomOut()">Zoom Out</button>
+    <script>
+        function changeScene(sceneId) {
+            var iframe = document.querySelector('iframe');
+            var url = iframe.src.split('?')[0]; // Get the base URL of the iframe
+            var newUrl = url + '?config=../../examples/example-tour.json&firstScene=' + sceneId;
+            iframe.src = newUrl;
+        }
+        function zoomIn() {
+            var iframe = document.querySelector('iframe');
+            var width = parseInt(iframe.getAttribute('width'));
+            var height = parseInt(iframe.getAttribute('height'));
+            iframe.setAttribute('width', width + 50);
+            iframe.setAttribute('height', height + 50);
+        }
+
+        function zoomOut() {
+            var iframe = document.querySelector('iframe');
+            var width = parseInt(iframe.getAttribute('width'));
+            var height = parseInt(iframe.getAttribute('height'));
+            iframe.setAttribute('width', width - 50);
+            iframe.setAttribute('height', height - 50);
+        }
+    </script>
+</body>
+</html>

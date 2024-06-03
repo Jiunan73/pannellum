@@ -1,0 +1,62 @@
+﻿{
+    "default": {
+        
+        "firstScene": "Lab1",
+        "sceneFadeDuration": 2000
+    },
+    
+    "scenes": {
+        
+
+        "Lab1": {
+            
+            "panorama": "./map/map1.jpg",
+            "autoLoad": true,
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 100,
+                    "type": "scene",
+                    "text": "Lab2",
+                    "sceneId": "Lab2"
+                }
+                
+            ]
+        }
+        ,
+            "Lab2": {
+                "panorama": "./map/map2.jpg",
+                "autoLoad": true,
+                "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 0,
+                    "type": "scene",
+                    "text": "Go to Lab3",
+                    "sceneId": "Lab3"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": 100,
+                    "type": "scene",
+                    "text": "Go to Lab1",
+                    "sceneId": "Lab1"
+                }
+                ]
+            }
+            ,
+            "Lab3": {
+                "panorama": "./map/map3.jpg",
+                "autoLoad": true,
+                "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 0,
+                    "type": "scene",
+                    "text": "Back to Lab2",
+                    "sceneId": "Lab2"
+                }
+                ]
+            }
+    }
+}
